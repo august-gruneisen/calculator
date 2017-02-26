@@ -4,7 +4,7 @@ This is a java calculator project written from scratch using Eclipse WindowBuild
 ## how to run calculator application
 	* Clone repository
 	* Navigate to src directory
-	* Compile java file "Frame1.java"
-		- javac Frame1.java
+	* Compile java file "Calculator.java"
+		- javac Calculator.java
 	* Run
-		- java Frame1
+		- java Calculator

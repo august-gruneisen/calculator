@@ -15,7 +15,7 @@ import java.awt.event.FocusEvent;
 import java.awt.Color;
 import javax.swing.UIManager;
 
-public class Frame1 {
+public class Calculator {
 	
 	Boolean TextField1 = true;
 	Boolean TextField2 = false;
@@ -32,7 +32,7 @@ public class Frame1 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Frame1 window = new Frame1();
+					Calculator window = new Calculator();
 					window.frmCalculator.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,7 +44,7 @@ public class Frame1 {
 	/**
 	 * Create the application.
 	 */
-	public Frame1() {
+	public Calculator() {
 		initialize();
 	}
 
