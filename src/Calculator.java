@@ -271,13 +271,13 @@ public class Calculator {
 		// When clicked, perform a division of the two operands.
 		btnDivide.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (textFieldNum1.getText().contains(".") || textFieldNum2.getText().contains(".")) {
+				if (textFieldNum1.getText().contains(".") || textFieldNum2.getText().contains(".") || Double.parseDouble(textFieldNum1.getText()) % Double.parseDouble(textFieldNum2.getText()) != 0) {
 					double num1, num2, answer;
 					try {
 						num1 = Double.parseDouble(textFieldNum1.getText());
 						num2 = Double.parseDouble(textFieldNum2.getText());
 						
-						if (!(num2 == 0.0)) {
+						if (!(num2 == 0.0)) { // Only performs calculation if second operand is not zero
 							answer = num1 / num2;
 							answerField.setText(Double.toString(answer));
 						} else
