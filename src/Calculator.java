@@ -277,9 +277,11 @@ public class Calculator {
 						num1 = Double.parseDouble(textFieldNum1.getText());
 						num2 = Double.parseDouble(textFieldNum2.getText());
 						
-						answer = num1 / num2;
-						
-						answerField.setText(Double.toString(answer));
+						if (!(num2 == 0.0)) {
+							answer = num1 / num2;
+							answerField.setText(Double.toString(answer));
+						} else
+							answerField.setText("Can't divide by 0");
 					} catch (Exception e4) {
 						JOptionPane.showMessageDialog(null, "Please enter valid number");
 					}
@@ -289,9 +291,11 @@ public class Calculator {
 						num1 = Integer.parseInt(textFieldNum1.getText());
 						num2 = Integer.parseInt(textFieldNum2.getText());
 						
-						answer = num1 / num2;
-						
-						answerField.setText(Integer.toString(answer));
+						if (!(num2 == 0)) {
+							answer = num1 / num2;
+							answerField.setText(Integer.toString(answer));
+						} else
+							answerField.setText("Can't divide by 0");
 					} catch (Exception e4) {
 						JOptionPane.showMessageDialog(null, "Please enter valid number");
 					}
