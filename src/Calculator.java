@@ -499,11 +499,15 @@ public class Calculator {
 		btnDecimal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (TextField1) {
-					String currentText = textFieldNum1.getText();
-					textFieldNum1.setText(currentText + ".");
+					if (!textFieldNum1.getText().contains(".")) { // Only works if there is no decimal already in the text field
+						String currentText = textFieldNum1.getText();
+						textFieldNum1.setText(currentText + ".");
+					}
 				} else if (TextField2) {
-					String currentText = textFieldNum2.getText();
-					textFieldNum2.setText(currentText + ".");
+					if (!textFieldNum2.getText().contains(".")) {
+						String currentText = textFieldNum2.getText();
+						textFieldNum2.setText(currentText + ".");
+					}
 				}
 			}
 		});
