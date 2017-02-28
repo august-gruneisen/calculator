@@ -3,7 +3,7 @@
  * There are 2 text fields that can accept input from the user.
  * The user may type integers from a keyboard or use buttons from the interface to enter input.
  * The user may add, subtract, multiply, or divide two operands.
- * If only integers are inputted, the answer will be an integer.
+ * If only integers are inputed, the answer will be an integer.
  * If a decimal is used in either of the operands, the answer will be a floating point.
  * The user may clear input and/or the answer by using the "CLEAR" button
  */
@@ -31,8 +31,7 @@ import javax.swing.UIManager;
 * @version 1.0
 */
 public class Calculator {
-	// Used to find which text field is focused. First text field is focused by default.
-	Boolean TextField1 = true;
+	Boolean TextField1 = true; // Used to find which text field is focused. First text field is focused by default.
 	Boolean TextField2 = false;
 
 	private JFrame frmCalculator;
@@ -76,6 +75,7 @@ public class Calculator {
 		frmCalculator.setBounds(500, 100, 455, 606);
 		frmCalculator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalculator.getContentPane().setLayout(null);
+		
 		// Initialize first text field
 		textFieldNum1 = new JTextField();
 		textFieldNum1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -83,7 +83,7 @@ public class Calculator {
 		textFieldNum1.setCaretColor(new Color(0, 0, 0));
 		textFieldNum1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		textFieldNum1.setBackground(new Color(0, 0, 255));
-		// Focus listener changes global variables used to determine which text field currently has focus
+		// Focus listener changes the global variables that are used to determine which text field currently has focus
 		textFieldNum1.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -94,6 +94,7 @@ public class Calculator {
 		textFieldNum1.setBounds(10, 344, 210, 48);
 		frmCalculator.getContentPane().add(textFieldNum1);
 		textFieldNum1.setColumns(10);
+		
 		// Initialize second text field
 		textFieldNum2 = new JTextField();
 		textFieldNum2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -112,18 +113,31 @@ public class Calculator {
 		textFieldNum2.setColumns(10);
 		textFieldNum2.setBounds(230, 344, 210, 48);
 		frmCalculator.getContentPane().add(textFieldNum2);
-		// Initialize "ANSWER:" label
+		
+		// Initialize answer field
+		answerField = new JTextField();
+		answerField.setHorizontalAlignment(SwingConstants.CENTER);
+		answerField.setForeground(new Color(255, 255, 255));
+		answerField.setCaretColor(new Color(0, 0, 0));
+		answerField.setFont(new Font("Tahoma", Font.BOLD, 15));
+		answerField.setBackground(new Color(0, 0, 255));
+		answerField.setBounds(230, 521, 210, 48);
+		frmCalculator.getContentPane().add(answerField);
+		answerField.setColumns(10);
+		
+		// Initialize answer label
 		JLabel lblAnswer = new JLabel("ANSWER:");
 		lblAnswer.setForeground(new Color(0, 0, 255));
 		lblAnswer.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAnswer.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblAnswer.setBounds(10, 521, 210, 48);
 		frmCalculator.getContentPane().add(lblAnswer);
+		
 		/**
 		 * INITIALIZE OPERATION BUTTONS
 		 * 
 		 * These buttons will be used to perform mathematical operations on the input
-		 * When cliked, perform operation using the two operands.
+		 * When clicked, perform operation using the two operands.
 		 * Set text of the answer field to display the operation.
 		 * If either operand contains a decimal, perform the operation using doubles
 		 * If neither operand contains a decimal, perform the operation using integers
@@ -134,9 +148,7 @@ public class Calculator {
 		JButton btnAdd = new JButton("ADD");
 		btnAdd.setBackground(UIManager.getColor("Button.background"));
 		btnAdd.setFocusable(false);
-		/**
-		 * When cliked, perform an addition of the two operands.
-		 */
+		// When clicked, perform an addition of the two operands.
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (textFieldNum1.getText().contains(".") || textFieldNum2.getText().contains(".")) {
@@ -171,13 +183,12 @@ public class Calculator {
 		});
 		btnAdd.setBounds(10, 403, 210, 48);
 		frmCalculator.getContentPane().add(btnAdd);
+		
 		// Initialize subtract button
 		JButton btnSubtract = new JButton("SUBTRACT");
 		btnSubtract.setBackground(UIManager.getColor("Button.background"));
 		btnSubtract.setFocusable(false);
-		/**
-		 * When cliked, perform a subtraction of the two operands.
-		 */
+		// When clicked, perform a subtraction of the two operands.
 		btnSubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (textFieldNum1.getText().contains(".") || textFieldNum2.getText().contains(".")) {
@@ -212,13 +223,12 @@ public class Calculator {
 		});
 		btnSubtract.setBounds(230, 403, 210, 48);
 		frmCalculator.getContentPane().add(btnSubtract);
+		
 		// Initialize multiply button
 		JButton btnMultiply = new JButton("MULTIPLY");
 		btnMultiply.setBackground(UIManager.getColor("Button.background"));
 		btnMultiply.setFocusable(false);
-		/**
-		 * When cliked, perform a multiplication of the two operands.
-		 */
+		 // When clicked, perform a multiplication of the two operands.
 		btnMultiply.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (textFieldNum1.getText().contains(".") || textFieldNum2.getText().contains(".")) {
@@ -253,13 +263,12 @@ public class Calculator {
 		});
 		btnMultiply.setBounds(10, 462, 210, 48);
 		frmCalculator.getContentPane().add(btnMultiply);
+		
 		// Initialize divide button
 		JButton btnDivide = new JButton("DIVIDE");
 		btnDivide.setBackground(UIManager.getColor("Button.background"));
 		btnDivide.setFocusable(false);
-		/**
-		 * When cliked, perform a division of the two operands.
-		 */
+		// When clicked, perform a division of the two operands.
 		btnDivide.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (textFieldNum1.getText().contains(".") || textFieldNum2.getText().contains(".")) {
@@ -294,16 +303,7 @@ public class Calculator {
 		});
 		btnDivide.setBounds(230, 462, 210, 48);
 		frmCalculator.getContentPane().add(btnDivide);
-		// Initialize answer field
-		answerField = new JTextField();
-		answerField.setHorizontalAlignment(SwingConstants.CENTER);
-		answerField.setForeground(new Color(255, 255, 255));
-		answerField.setCaretColor(new Color(0, 0, 0));
-		answerField.setFont(new Font("Tahoma", Font.BOLD, 15));
-		answerField.setBackground(new Color(0, 0, 255));
-		answerField.setBounds(230, 521, 210, 48);
-		frmCalculator.getContentPane().add(answerField);
-		answerField.setColumns(10);
+
 		/**
 		 * INITIALIZE INPUT BUTTONS
 		 * 
@@ -329,6 +329,7 @@ public class Calculator {
 		});
 		btn1.setBounds(10, 11, 100, 100);
 		frmCalculator.getContentPane().add(btn1);
+		
 		// Initialize 2 button
 		JButton btn2 = new JButton("2");
 		btn2.setBackground(UIManager.getColor("Button.background"));
@@ -346,6 +347,7 @@ public class Calculator {
 		});
 		btn2.setBounds(120, 11, 100, 100);
 		frmCalculator.getContentPane().add(btn2);
+		
 		// Initialize 3 button
 		JButton btn3 = new JButton("3");
 		btn3.setBackground(UIManager.getColor("Button.background"));
@@ -363,6 +365,7 @@ public class Calculator {
 		});
 		btn3.setBounds(230, 11, 100, 100);
 		frmCalculator.getContentPane().add(btn3);
+		
 		// Initialize 4 button
 		JButton btn4 = new JButton("4");
 		btn4.setBackground(UIManager.getColor("Button.background"));
@@ -380,6 +383,7 @@ public class Calculator {
 		});
 		btn4.setBounds(10, 122, 100, 100);
 		frmCalculator.getContentPane().add(btn4);
+		
 		// Initialize 5 button
 		JButton btn5 = new JButton("5");
 		btn5.setBackground(UIManager.getColor("Button.background"));
@@ -397,6 +401,7 @@ public class Calculator {
 		});
 		btn5.setBounds(120, 122, 100, 100);
 		frmCalculator.getContentPane().add(btn5);
+		
 		// Initialize 6 button
 		JButton btn6 = new JButton("6");
 		btn6.setBackground(UIManager.getColor("Button.background"));
@@ -414,6 +419,7 @@ public class Calculator {
 		});
 		btn6.setBounds(230, 122, 100, 100);
 		frmCalculator.getContentPane().add(btn6);
+		
 		// Initialize 7 button
 		JButton btn7 = new JButton("7");
 		btn7.setBackground(UIManager.getColor("Button.background"));
@@ -431,6 +437,7 @@ public class Calculator {
 		});
 		btn7.setBounds(10, 233, 100, 100);
 		frmCalculator.getContentPane().add(btn7);
+		
 		// Initialize 8 button
 		JButton btn8 = new JButton("8");
 		btn8.setBackground(UIManager.getColor("Button.background"));
@@ -448,6 +455,7 @@ public class Calculator {
 		});
 		btn8.setBounds(120, 233, 100, 100);
 		frmCalculator.getContentPane().add(btn8);
+		
 		// Initialize 9 button
 		JButton btn9 = new JButton("9");
 		btn9.setBackground(UIManager.getColor("Button.background"));
@@ -465,23 +473,7 @@ public class Calculator {
 		});
 		btn9.setBounds(230, 233, 100, 100);
 		frmCalculator.getContentPane().add(btn9);
-		// Initialize decimal button
-		JButton btnDecimal = new JButton(".");
-		btnDecimal.setBackground(UIManager.getColor("Button.background"));
-		btnDecimal.setFocusable(false);
-		btnDecimal.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if (TextField1) {
-					String currentText = textFieldNum1.getText();
-					textFieldNum1.setText(currentText + ".");
-				} else if (TextField2) {
-					String currentText = textFieldNum2.getText();
-					textFieldNum2.setText(currentText + ".");
-				}
-			}
-		});
-		btnDecimal.setBounds(340, 122, 100, 100);
-		frmCalculator.getContentPane().add(btnDecimal);
+		
 		// Initialize 0 button
 		JButton btn0 = new JButton("0");
 		btn0.setBackground(UIManager.getColor("Button.background"));
@@ -499,6 +491,25 @@ public class Calculator {
 		});
 		btn0.setBounds(340, 233, 100, 100);
 		frmCalculator.getContentPane().add(btn0);
+		
+		// Initialize decimal button
+		JButton btnDecimal = new JButton(".");
+		btnDecimal.setBackground(UIManager.getColor("Button.background"));
+		btnDecimal.setFocusable(false);
+		btnDecimal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (TextField1) {
+					String currentText = textFieldNum1.getText();
+					textFieldNum1.setText(currentText + ".");
+				} else if (TextField2) {
+					String currentText = textFieldNum2.getText();
+					textFieldNum2.setText(currentText + ".");
+				}
+			}
+		});
+		btnDecimal.setBounds(340, 122, 100, 100);
+		frmCalculator.getContentPane().add(btnDecimal);
+
 		/** INITIALIZE CLEAR BUTTON
 		 * 
 		 * This button will clear user input and answer
