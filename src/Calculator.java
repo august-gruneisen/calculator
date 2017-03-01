@@ -23,6 +23,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.Color;
 import javax.swing.UIManager;
+import java.awt.SystemColor;
 
 /**
 * Calculator Model Object.
@@ -515,8 +516,36 @@ public class Calculator {
 				}
 			}
 		});
-		btnDecimal.setBounds(340, 122, 100, 100);
+		btnDecimal.setBounds(340, 177, 100, 45);
 		frmCalculator.getContentPane().add(btnDecimal);
+		
+		// Initialize sign change button
+		JButton btnSignChange = new JButton("+ / -");
+		btnSignChange.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (TextField1) {
+					if (textFieldNum1.getText().contains(".")) {
+						double num = Double.parseDouble(textFieldNum1.getText());
+						textFieldNum1.setText(Double.toString(num * -1));
+					} else {
+						int num = Integer.parseInt(textFieldNum1.getText());
+						textFieldNum1.setText(Integer.toString(num * -1));
+					}
+				} else if (TextField2) {
+					if (textFieldNum2.getText().contains(".")) {
+						double num = Double.parseDouble(textFieldNum2.getText());
+						textFieldNum2.setText(Double.toString(num * -1));
+					} else {
+						int num = Integer.parseInt(textFieldNum2.getText());
+						textFieldNum2.setText(Integer.toString(num * -1));
+					}
+				}
+			}
+		});
+		btnSignChange.setFocusable(false);
+		btnSignChange.setBackground(SystemColor.menu);
+		btnSignChange.setBounds(340, 122, 100, 45);
+		frmCalculator.getContentPane().add(btnSignChange);
 
 		/** INITIALIZE CLEAR BUTTON
 		 * 
