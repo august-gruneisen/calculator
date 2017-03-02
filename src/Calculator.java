@@ -24,6 +24,12 @@ import java.awt.event.FocusEvent;
 import java.awt.Color;
 import javax.swing.UIManager;
 import java.awt.SystemColor;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JMenu;
+import javax.swing.JRadioButtonMenuItem;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 /**
 * Calculator Model Object.
@@ -73,12 +79,26 @@ public class Calculator {
 		frmCalculator.getContentPane().setBackground(new Color(0, 0, 0));
 		frmCalculator.setResizable(false);
 		frmCalculator.setTitle("ABT (August Built This) Calculator 1.0");
-		frmCalculator.setBounds(500, 100, 455, 606);
+		frmCalculator.setBounds(500, 100, 457, 629);
 		frmCalculator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalculator.getContentPane().setLayout(null);
 		
 		// Initialize first text field
 		textFieldNum1 = new JTextField();
+		textFieldNum1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (e.getKeyChar() == KeyEvent.VK_PERIOD) {
+					if (textFieldNum1.getText().contains(".")) {
+						e.consume();
+					}
+					
+				}
+				else if (!Character.isDigit(e.getKeyChar()) && (e.getKeyChar() != KeyEvent.VK_BACK_SPACE) && (e.getKeyChar() != KeyEvent.VK_DELETE) && (e.getKeyChar() != KeyEvent.VK_PERIOD)) {
+					e.consume();
+				}
+			}
+		});
 		textFieldNum1.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldNum1.setForeground(new Color(255, 255, 255));
 		textFieldNum1.setCaretColor(new Color(0, 0, 0));
@@ -98,6 +118,20 @@ public class Calculator {
 		
 		// Initialize second text field
 		textFieldNum2 = new JTextField();
+		textFieldNum2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (e.getKeyChar() == KeyEvent.VK_PERIOD) {
+					if (textFieldNum2.getText().contains(".")) {
+						e.consume();
+					}
+					
+				}
+				else if (!Character.isDigit(e.getKeyChar()) && (e.getKeyChar() != KeyEvent.VK_BACK_SPACE) && (e.getKeyChar() != KeyEvent.VK_DELETE) && (e.getKeyChar() != KeyEvent.VK_PERIOD)) {
+					e.consume();
+				}
+			}
+		});
 		textFieldNum2.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldNum2.setForeground(new Color(255, 255, 255));
 		textFieldNum2.setCaretColor(new Color(0, 0, 0));
@@ -117,6 +151,7 @@ public class Calculator {
 		
 		// Initialize answer field
 		answerField = new JTextField();
+		answerField.setFocusable(false);
 		answerField.setHorizontalAlignment(SwingConstants.CENTER);
 		answerField.setForeground(new Color(255, 255, 255));
 		answerField.setCaretColor(new Color(0, 0, 0));
@@ -592,5 +627,17 @@ public class Calculator {
 		btnClear.setFocusable(false);
 		btnClear.setBounds(340, 11, 100, 100);
 		frmCalculator.getContentPane().add(btnClear);
+		
+		JMenuBar menuBar = new JMenuBar();
+		frmCalculator.setJMenuBar(menuBar);
+		
+		JMenu mnFile = new JMenu("File");
+		menuBar.add(mnFile);
+		
+		JRadioButtonMenuItem rdbtnmntmScientific = new JRadioButtonMenuItem("Scientific");
+		mnFile.add(rdbtnmntmScientific);
+		
+		JRadioButtonMenuItem rdbtnmntmSimple = new JRadioButtonMenuItem("Simple");
+		mnFile.add(rdbtnmntmSimple);
 	}
 }
