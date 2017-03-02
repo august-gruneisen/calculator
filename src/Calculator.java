@@ -92,7 +92,6 @@ public class Calculator {
 					if (textFieldNum1.getText().contains(".")) {
 						e.consume();
 					}
-					
 				}
 				else if (!Character.isDigit(e.getKeyChar()) && (e.getKeyChar() != KeyEvent.VK_BACK_SPACE) && (e.getKeyChar() != KeyEvent.VK_DELETE) && (e.getKeyChar() != KeyEvent.VK_PERIOD)) {
 					e.consume();
