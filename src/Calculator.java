@@ -92,6 +92,17 @@ public class Calculator {
 					if (textFieldNum1.getText().contains(".")) {
 						e.consume();
 					}
+					
+				}
+				else if (e.getKeyChar() == KeyEvent.VK_MINUS) {
+					e.consume();
+						if (textFieldNum1.getText().contains(".")) {
+							double num = Double.parseDouble(textFieldNum1.getText());
+							textFieldNum1.setText(Double.toString(num * -1));
+						} else {
+							int num = Integer.parseInt(textFieldNum1.getText());
+							textFieldNum1.setText(Integer.toString(num * -1));
+						}
 				}
 				else if (!Character.isDigit(e.getKeyChar()) && (e.getKeyChar() != KeyEvent.VK_BACK_SPACE) && (e.getKeyChar() != KeyEvent.VK_DELETE) && (e.getKeyChar() != KeyEvent.VK_PERIOD)) {
 					e.consume();
@@ -124,7 +135,16 @@ public class Calculator {
 					if (textFieldNum2.getText().contains(".")) {
 						e.consume();
 					}
-					
+				}
+				else if (e.getKeyChar() == KeyEvent.VK_MINUS) {
+					e.consume();
+					if (textFieldNum2.getText().contains(".")) {
+						double num = Double.parseDouble(textFieldNum2.getText());
+						textFieldNum2.setText(Double.toString(num * -1));
+					} else {
+						int num = Integer.parseInt(textFieldNum2.getText());
+						textFieldNum2.setText(Integer.toString(num * -1));
+					}
 				}
 				else if (!Character.isDigit(e.getKeyChar()) && (e.getKeyChar() != KeyEvent.VK_BACK_SPACE) && (e.getKeyChar() != KeyEvent.VK_DELETE) && (e.getKeyChar() != KeyEvent.VK_PERIOD)) {
 					e.consume();
