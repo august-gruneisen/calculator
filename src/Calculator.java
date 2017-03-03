@@ -78,7 +78,7 @@ public class Calculator {
 		frmCalculator.getContentPane().setBackground(new Color(0, 0, 0));
 		frmCalculator.setResizable(false);
 		frmCalculator.setTitle("ABT (August Built This) Calculator 1.0");
-		frmCalculator.setBounds(500, 100, 457, 629);
+		frmCalculator.setBounds(500, 100, 457, 608);
 		frmCalculator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalculator.getContentPane().setLayout(null);
 		
