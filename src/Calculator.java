@@ -25,7 +25,6 @@ import java.awt.Color;
 import javax.swing.UIManager;
 import java.awt.SystemColor;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JRadioButtonMenuItem;
 import java.awt.event.KeyAdapter;
