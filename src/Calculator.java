@@ -646,17 +646,5 @@ public class Calculator {
 		btnClear.setFocusable(false);
 		btnClear.setBounds(340, 11, 100, 100);
 		frmCalculator.getContentPane().add(btnClear);
-		
-		JMenuBar menuBar = new JMenuBar();
-		frmCalculator.setJMenuBar(menuBar);
-		
-		JMenu mnFile = new JMenu("File");
-		menuBar.add(mnFile);
-		
-		JRadioButtonMenuItem rdbtnmntmScientific = new JRadioButtonMenuItem("Scientific");
-		mnFile.add(rdbtnmntmScientific);
-		
-		JRadioButtonMenuItem rdbtnmntmSimple = new JRadioButtonMenuItem("Simple");
-		mnFile.add(rdbtnmntmSimple);
 	}
 }
