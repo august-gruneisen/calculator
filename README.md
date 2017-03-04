@@ -7,7 +7,7 @@ This is a java calculator project written from scratch using Eclipse WindowBuild
 	* Compile the java file "Calculator.java"
 		$ javac Calculator.java
 	* Run the calculator from the command line
-		& java Calculator
+		$ java Calculator
 		
 ## ROADMAP
 	* Current release (v1.0)
