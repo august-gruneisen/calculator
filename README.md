@@ -1,4 +1,4 @@
-# calculator
+# calculator v1.0
 This is a java calculator project written from scratch using Eclipse WindowBuilder.
 
 ## HOW TO RUN THE CALCULATOR
